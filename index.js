@@ -1,35 +1,24 @@
-const title = document.querySelector('h1');
-const p = document.querySelector('p');
-const parrafo = document.querySelector('.parrafo');
-const parrafoId  = document.querySelector('#parrafoId');
-const input = document.querySelector('input');
+//Obtenemos los elementos HTML que vamos a manipular atraves de su id
+const value1 = document.querySelector('#value1');
+const value2 = document.querySelector('#value2');
+const btnCalcular = document.querySelector('#btnCalcular');
+const result = document.querySelector('#result');
+const form = document.querySelector('#form');
 
-console.log({
-    title,
-    p,
-    parrafo,
-    parrafoId,
-    input
-});
+//Utilizamos el escuchador de eventos en nuestro id del formulario con 
+//su evento "submit" y le pasamos la función que imprime el total de la operación
+form.addEventListener('submit', sumarInputValues);
 
-title.innerHTML = "Hello world";
-title.innerText = 'Hola Mundo';
+function sumarInputValues(event) { 
+	//utilizamos esta "preventDefault()" función para que deje de refrescar 
+	//la pagina al hacer la operación
+	event.preventDefault(); 
+	//realizamos la suma y la conversión de los String a Int con 
+    //la función parseInt
+    const input1 = parseInt(value1.value);
+	const input2 = parseInt(value2.value);
+  const totalCalculo = input1 + input2;
+	//Mostramos el resultado en el elemento con el id result con el metodo innerText
+    result.innerText = "Resultado: " + totalCalculo;
+}
 
-//Editar atributos
-title.getAttribute('class');
-title.setAttribute('class', 'titulo');
-
-//Agregar atributos
-title.classList.add('oscuro');
-title.classList.remove('oscuro');
-
-// title.classList.toggle('oscuro');
-// title.classList.contains('oscuro');
-
-input.value = '456';
-const img = document.createElement('img');
-img.setAttribute('src','https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wHeT?ver=80f6');
-console.log(img);
-
-parrafoId.innerHTML = '';
-parrafoId.appendChild(img);
