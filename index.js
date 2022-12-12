@@ -17,7 +17,7 @@ function sumarInputValues(event) {
     //la función parseInt
     const input1 = parseInt(value1.value);
 	const input2 = parseInt(value2.value);
-  const totalCalculo = input1 + input2;
+    const totalCalculo = input1 + input2;
 	//Mostramos el resultado en el elemento con el id result con el metodo innerText
     result.innerText = "Resultado: " + totalCalculo;
 }
